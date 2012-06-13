@@ -1,11 +1,15 @@
 $: << File.dirname(__FILE__) + "/lib"
 require "rubygems"
+require 'bundler'
+Bundler.require
 require "sinatra"
-require 'json'
-require "haml"
-require "pp"
-require "data_mapper"
-enable :sessions
-require "image"
-require "account"
+#http://stackoverflow.com/questions/5015471/using-sinatra-for-larger-projects-via-multiple-files
+#
+class PhotoApp < Sinatra::Application
+  enable :sessions
+  helpers do
+    include Rack::Utils
+  end
+end
+require_relative 'routes/init'
 
