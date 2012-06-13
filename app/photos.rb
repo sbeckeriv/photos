@@ -12,4 +12,6 @@ class PhotoApp < Sinatra::Application
   end
 end
 require_relative 'routes/init'
+require_relative 'models/init'
+
 
